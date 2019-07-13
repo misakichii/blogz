@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <link rel='stylesheet' type='text/css' href="{{ url_for('static',filename='style.css') }}"> 
+        <style>
+            .error {color:  darkorchid}
+            .red {color: red}
+        </style>
+    </head>
+<body>
+        <table>
+            <tr><td>
+            <div class='nav-primary'>
+                <ul>
+                    <li><a href='/blog'>Main Blog</a></li>
+                    <li><a href='/newpost'>Add new post</a></li>
+                </ul>
+            </div>
+            <br />
+            </td></tr>
+
+
+            <tr class='border'><td>
+            <h2 class='justify'>Welcome to Build-a-blog</h2>
+            <hr class='wrapper'/>
+            </td></tr>
+
+            <tr><td>
+            <!--https://www.tutorialspoint.com/flask/flask_message_flashing.htm-->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                        
+                        <li class='error'> {{message }} </li>
+                        
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                
+            {% endwith %}
+          
+
+            {% block content %}
+
+            {% endblock %}
+            </td></tr>
+        </table>
+
+</body>
+</html>

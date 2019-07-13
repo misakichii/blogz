@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if allblogs|length == 0 %}
+    <p>No Blog entries</p>
+    {% else %}
+
+            {% for blog in allblogs %}
+            <!--link for each blog goes here-->
+            <h2><a href='blog?id={{blog.id}}/'>{{blog.title}}</a></h2>
+            Date: {{blog.day}}, {{blog.date}}
+            <p>{{blog.body}}</p>
+            
+            <hr class='wrapper'/>
+            {% endfor %}
+            
+{% endif %}
+    
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>New Blog Entry</h2>
+    <form method='post'>
+
+        <label for='wk_day'>Day of Week</label>
+        <select id='wk_day' name='day'>
+            <option value='Monday'>Monday</option>
+            <option value='Tuesday'>Tuesday</option>
+            <option value='Wednesday'>Wednesday</option>
+            <option value='Thursday'>Thursday</option>
+            <option value='Friday'>Friday</option>
+            <option value='Saturday'>Saturday</option>
+            <option value='Sunday'>Sunday</option>
+        </select>
+
+        <label>Date:<input type='date' name='date' value='2019-07-11'/></label>
+
+        <br />
+        <label>Title of blog post: <p>
+            <input type='text' name='title'></label></p>
+
+        <br />
+
+        <label>Blog post: <p>
+            <textarea name='body' placeholder='Enter blog post here.' rows='6' cols='40'>{{blog_entry}}</textarea></label></p>
+
+        <input type='submit' value='Add blog entry'>
+
+    </form>
+
+    <hr />
+  
+{% endblock %}
