@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<fieldset>
+        <legend>Individual User Posts</legend>
+           {% for blog in posts %}       
+            <h2><a href='blog?id={{blog.id}}/'>{{blog.title}}</a></h2>
+            <p>{{blog.body}}</p>
+            <p>Posts written by: <a href="/blog?owner_id={{blog.owner_id}}">{{blog.owner.username}}</a></p>
+
+    {% endfor %}
+</fieldset>
+
+{% endblock %}
+
+
+

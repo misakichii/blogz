@@ -1,52 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
     <head>
-        <title>{{title}}</title>
-        <link rel='stylesheet' type='text/css' href="{{ url_for('static',filename='style.css') }}"> 
-        <style>
-            .error {color:  darkorchid}
-            .red {color: red}
-        </style>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1 shrink-to-fit=no'>
+        <title>Blogz - Build a Blog</title>
+        <!--link rel='stylesheet' type='text/css' href="{{ url_for('static',filename='blogz_style.css') }}"-->
+        <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='bootstrap.css') }}">
+        <link href='http://fonts.googleapis.com/css?family=Philosopher' rel='stylesheet' type='text/css'>
+
     </head>
-<body>
-        <table>
-            <tr><td>
-            <div class='nav-primary'>
-                <ul>
-                    <li><a href='/blog'>Main Blog</a></li>
-                    <li><a href='/newpost'>Add new post</a></li>
-                </ul>
-            </div>
-            <br />
-            </td></tr>
-
-
-            <tr class='border'><td>
-            <h2 class='justify'>Welcome to Build-a-blog</h2>
-            <hr class='wrapper'/>
-            </td></tr>
-
-            <tr><td>
-            <!--https://www.tutorialspoint.com/flask/flask_message_flashing.htm-->
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    <ul>
-                        {% for message in messages %}
-                        
-                        <li class='error'> {{message }} </li>
-                        
-                        {% endfor %}
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand">Blogz</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                      
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/blog">Main</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/newpost">Add Post</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
                     </ul>
-                {% endif %}
-                
-            {% endwith %}
-          
+                </div>
+            </nav>
+        </header>
 
-            {% block content %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <li class='error'> {{ message }} </li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
 
-            {% endblock %}
-            </td></tr>
-        </table>
+        {% block content %}
 
-</body>
+        {% endblock %}
+
+    </body>
 </html>

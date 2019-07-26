@@ -2,38 +2,27 @@
 
 {% block content %}
 
-<h2>Register Account for Blogz</h2>
 <form action='/register' method='post'>
-    <table>
-        <tr>
-            <td><label for='username'>Username</label></td>
-            <td>
-                <input name='username' type='text' value='{{username}}'>
-            </td>
-        </tr>
-
-        <tr>    
-            <td><label for='email'>Email</label></td>
-            <td>
-                <input name='email' type='email' value='{{email}}'>  
-            </td>
-        </tr>
-
-        <tr>
-            <td><label for='password'>Password</label></td>
-            <td>
-                <input name='password' type='password'>
-            </td>
-        </tr>
-
-        <tr>
-            <td><label for='verify'>Verify Password</label></td>
-            <td>
-                <input name='verify' type='verify'>
-            </td>
-        </tr>
-    </table>
-    <input type='submit' value='register'>
+    <fieldset>
+        <legend>Register New Account for Blogz</legend>
+        
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" value='{{username}}' placeholder="Enter username" style="width: 325px;">
+            
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter password" value='{{password}}' style="width: 325px;">
+       </div>           
+       
+       <div class="form-group">
+            <label>Verify Password</label>
+            <input type="password" name="verify" class="form-control" placeholder="Verify password" value='{{verify}}' style="width: 325px;">
+       </div> 
+        <!--input type="submit" value="register" class="btn btn-primary"-->
+        <button type="submit" class="btn btn-success" value='register'>Register</button-->
+    </fieldset>
 </form>
 
 {% endblock %}

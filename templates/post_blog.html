@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<fieldset>
+        <legend>Post Content</legend>
+    {{user_post.title}}
+    <p>{{user_post.body}}</p>
+    Post written by: <a href='/blog?owner_id={{user_post.owner_id}}'>{{user_post.owner.username}}</a>
+ </fieldset>
+
+{% endblock %}

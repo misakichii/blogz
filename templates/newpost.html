@@ -2,11 +2,10 @@
 
 {% block content %}
 
-
-<h2>{{newblog.title}}</h2>
-<br />Date: {{newblog.day}}, {{newblog.date}}
-
-<p>{{newblog.body}}</p>
-
-
+    <fieldset>
+        <legend>Post submitted</legend>
+        <h3 class='u'>{{newblog.title}}</h3>
+        <p>{{newblog.body}}</p>
+    </fieldset>
+    
 {% endblock %}
